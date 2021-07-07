@@ -20,8 +20,9 @@ jobs:
         run: npm run types
 
       - name: Test
-        run: npm run test -- --coverage
-        run: bash <(curl -s https://codecov.io/bash) -f ./coverage/coverage-final.json
+        run: |
+          npm run test -- --coverage
+          bash <(curl -s https://codecov.io/bash) -f ./coverage/coverage-final.json
 
       - name: Chromatic
         uses: chromaui/action@v1
